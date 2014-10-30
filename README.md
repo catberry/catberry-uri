@@ -5,7 +5,7 @@
 This is well-tested URI parser implementation that has been developed strictly
 according to [RFC 3986](https://tools.ietf.org/html/rfc3986).
 
-It supports punycode for URI host component and percent-encoding for
+It supports punycode for URI authority host component and percent-encoding for
 all URI components except scheme and port. Percent encoding/decoding
 happens automatically.
 
@@ -16,6 +16,42 @@ It implements relative reference resolution algorithm from
 
 ##Usage
 
+Parse URI
+```javascript
+var catberryURI = require('catberry-uri'),
+	URI = catberryURI.URI,
+	Authority = catberryURI.Authority,
+	UserInfo = catberryURI.UserInfo,
+	Query = catberryURI.Query;
+
+var uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment');
+console.log(uri);
+```
+And you will have such object
+```javascript
+{ scheme: 'http',
+  authority:
+   { userInfo: { user: 'user', password: 'pass' },
+     port: '3000',
+     host: 'example.org' },
+  path: '/some/path',
+  query: { values: { some: 'value', some2: 'value' } },
+  fragment: 'fragment' }
+```
+This object is instance of `URI` constructor, `authority` field is instance
+of `Authority`, `authority.userInfo` is instance of `UserInfo` and `query` is
+instance of `Query`.
+
+To get string representation of all these URI components just use `toString()`
+```javascript
+uri.authority.userInfo.toString(); // user:pass
+uri.authority.toString(); // user:pass@example.org:3000
+uri.query.toString(); // some=value&some2=value
+uri.toString(); // http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment
+```
+
+Also every URI component including URI itself has `clone` method to create
+a cloned URI component for building another URI.
 
 ##Contribution
 If you have found a bug, please create pull request with [mocha](https://www.npmjs.org/package/mocha) 
