@@ -84,6 +84,16 @@ console.log(uri.toString());
 ```
 All URI components are optional and `null` by default.
 
+###Resolve relative URI
+Also you can resolve any relative URI using base URI.
+```
+var uri = new URI('../../../../g'),
+	baseUri = new URI('http://a/b/c/d;p?q');
+
+var absoluteUri = uri.resolveRelative(baseUri);
+console.log(absoluteUri.toString()); // http://a/g
+```
+
 ##Contribution
 If you have found a bug, please create pull request with [mocha](https://www.npmjs.org/package/mocha) 
 unit-test which reproduces it or describe all details in issue if you can not 
