@@ -16,7 +16,7 @@ It implements relative reference resolution algorithm from
 
 ##Usage
 
-Parse URI
+###Parse URI
 ```javascript
 var catberryURI = require('catberry-uri'),
 	URI = catberryURI.URI,
@@ -27,7 +27,7 @@ var catberryURI = require('catberry-uri'),
 var uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment');
 console.log(uri);
 ```
-And you will have such object
+And you will get such object
 ```javascript
 { scheme: 'http',
   authority:
@@ -42,6 +42,7 @@ This object is instance of `URI` constructor, `authority` field is instance
 of `Authority`, `authority.userInfo` is instance of `UserInfo` and `query` is
 instance of `Query`.
 
+###Get string
 To get string representation of all these URI components just use `toString()`
 ```javascript
 uri.authority.userInfo.toString(); // user:pass
