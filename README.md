@@ -86,7 +86,7 @@ All URI components are optional and `null` by default.
 
 ###Resolve relative URI
 Also you can resolve any relative URI using base URI.
-```
+```javascript
 var uri = new URI('../../../../g'),
 	baseUri = new URI('http://a/b/c/d;p?q');
 
