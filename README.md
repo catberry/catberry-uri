@@ -43,6 +43,11 @@ of `Authority`, `authority.userInfo` is instance of `UserInfo` and `query` is
 instance of `Query`.
 
 ###Get string
+You can safely edit every component of parsed URI and then get URI string back.
+When you convert URI object to string scheme and port values are validated and
+could throw exception if values are not satisfy `/^[a-z]+[a-z\d\+\.-]*$/i` and
+/^\d+$/ respectively.
+
 To get string representation of all these URI components just use `toString()`
 ```javascript
 uri.authority.userInfo.toString(); // user:pass
