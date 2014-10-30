@@ -42,7 +42,7 @@ This object is instance of `URI` constructor, `authority` field is instance
 of `Authority`, `authority.userInfo` is instance of `UserInfo` and `query` is
 instance of `Query`.
 
-###Get string
+###Get URI string
 You can safely edit every component of parsed URI and then get URI string back.
 When you convert URI object to string scheme and port values are validated and
 could throw exception if values are not satisfy `/^[a-z]+[a-z\d\+\.-]*$/i` and
@@ -53,11 +53,36 @@ To get string representation of all these URI components just use `toString()`
 uri.authority.userInfo.toString(); // user:pass
 uri.authority.toString(); // user:pass@example.org:3000
 uri.query.toString(); // some=value&some2=value
-uri.toString(); // http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment
+console.log(uri.toString());
+// http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment
 ```
 
+###Building new URI
 Also every URI component including URI itself has `clone` method to create
 a cloned URI component for building another URI.
+
+You can create new empty URI like this:
+```javascript
+var uri = new URI();
+uri.scheme = 'http';
+uri.authority = new Authority();
+uri.authority.userInfo = new UserInfo();
+uri.authority.userInfo.user = 'user';
+uri.authority.userInfo.password = 'pass';
+uri.authority.host = 'example.org';
+uri.authority.port = '3000';
+uri.path = '/some/path';
+uri.query = new Query();
+uri.query.values = {
+		some: 'value',
+		some2: 'value2'
+	};
+uri.fragment = 'fragment';
+
+console.log(uri.toString());
+// http://user:pass@example.org:3000/some/path?some=value&some2=value2#fragment
+```
+All URI components are optional and `null` by default.
 
 ##Contribution
 If you have found a bug, please create pull request with [mocha](https://www.npmjs.org/package/mocha) 
