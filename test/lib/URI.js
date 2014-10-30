@@ -31,23 +31,15 @@
 'use strict';
 
 var assert = require('assert'),
-	recombineNormal = require('./recombine-normal.json'),
-	parseNonEncoded = require('./parse-non-encoded.json'),
-	parseEncoded = require('./parse-encoded.json'),
-	rfcNormal = require('./rfc3986-specs-normal.json'),
-	rfcAbnormal = require('./rfc3986-specs-abnormal.json'),
+	recombineNormal = require('../recombine-normal.json'),
+	parseNonEncoded = require('../parse-non-encoded.json'),
+	parseEncoded = require('../parse-encoded.json'),
+	rfcNormal = require('../rfc3986-specs-normal.json'),
+	rfcAbnormal = require('../rfc3986-specs-abnormal.json'),
 	URI = require('../../lib/URI'),
 	Authority = require('../../lib/Authority'),
 	Query = require('../../lib/Query'),
 	UserInfo = require('../../lib/UserInfo');
-
-var scheme = 'scheme-+.scheme1234567890',
-	user = 'user-пользователь-._~-!$&\'()*+-:/?#[]@,;=',
-	path = '/some/путь/._~-!$&\'()*+/?#[]@,;=/',
-	password = 'password-пароль-._~-!$&\'()*+-:/?#[]@,;=',
-	host = 'host-хост-._~-!$&\'()*+-:/?#[]@,;=',
-	port = '3000',
-	query = '';
 
 describe('lib/URI', function () {
 	describe('constructor', function () {
