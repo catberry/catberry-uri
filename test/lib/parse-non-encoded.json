@@ -1,0 +1,267 @@
+{
+	"items": [
+		{
+			"name": "full URI",
+			"uri": "scheme-+.scheme1234567890://ABCabc123-._~!$&'()*+,;=:ABCabc123-._~!$&'()*+,;=@ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": "scheme-+.scheme1234567890",
+				"authority": {
+					"userInfo": {
+						"user": "ABCabc123-._~!$&'()*+,;=",
+						"password": "ABCabc123-._~!$&'()*+,;="
+					},
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI without scheme",
+			"uri": "//ABCabc123-._~!$&'()*+,;=:ABCabc123-._~!$&'()*+,;=@ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": {
+						"user": "ABCabc123-._~!$&'()*+,;=",
+						"password": "ABCabc123-._~!$&'()*+,;="
+					},
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI user info without password content",
+			"uri": "//ABCabc123-._~!$&'()*+,;=:@ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": {
+						"user": "ABCabc123-._~!$&'()*+,;=",
+						"password": ""
+					},
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI user info without password",
+			"uri": "//ABCabc123-._~!$&'()*+,;=@ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": {
+						"user": "ABCabc123-._~!$&'()*+,;=",
+						"password": null
+					},
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI user info without content",
+			"uri": "//@ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": {
+						"user": null,
+						"password": null
+					},
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI authority without user info",
+			"uri": "//ABCabc123_.~-!$&'()*+,;=:[]:1234/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": null,
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": "1234"
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI authority without port content",
+			"uri": "//ABCabc123_.~-!$&'()*+,;=:[]:/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": null,
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": ""
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI authority without port",
+			"uri": "//ABCabc123_.~-!$&'()*+,;=:[]/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": null,
+					"host": "ABCabc123_.~-!$&'()*+,;=:[]",
+					"port": null
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI authority without host",
+			"uri": "///ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": {
+					"userInfo": null,
+					"host": null,
+					"port": null
+				},
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI without authority",
+			"uri": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#ABCabc123-._~!$&'()*+,;=:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": "ABCabc123-._~!$&'()*+,;=:@/?"
+			}
+		},
+		{
+			"name": "URI without fragment content",
+			"uri": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?#",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": ""
+			}
+		},
+		{
+			"name": "URI without fragment",
+			"uri": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?ABCabc123-._~!$'()*+,;:@/?=ABCabc123-._~!$'()*+,;:@/?&ABCabc1234-._~!$'()*+,;:@/?=ABCabc1234-._~!$'()*+,;:@/?",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {
+					"ABCabc123-._~!$'()*+,;:@/?": "ABCabc123-._~!$'()*+,;:@/?",
+					"ABCabc1234-._~!$'()*+,;:@/?": "ABCabc1234-._~!$'()*+,;:@/?"
+				},
+				"fragment": null
+			}
+		},
+		{
+			"name": "URI without query content",
+			"uri": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@?",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": {},
+				"fragment": null
+			}
+		},
+		{
+			"name": "URI without query",
+			"uri": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/ABCabc123-._~!$&'()*+,;=:@/ABCabc123-._~!$&'()*+,;=:@",
+				"query": null,
+				"fragment": null
+			}
+		},
+		{
+			"name": "URI /",
+			"uri": "/",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/",
+				"query": null,
+				"fragment": null
+			}
+		},
+		{
+			"name": "empty URI",
+			"uri": "",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "",
+				"query": null,
+				"fragment": null
+			}
+		}
+	]
+}
