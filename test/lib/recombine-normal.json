@@ -1,0 +1,19 @@
+{
+	"items": [
+		"http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment",
+		"//user:pass@example.org:3000/some/path?some=value&some2=value#fragment",
+		"//user:@example.org:3000/some/path?some=value&some2=value#fragment",
+		"//user@example.org:3000/some/path?some=value&some2=value#fragment",
+		"//@example.org:3000/some/path?some=value&some2=value#fragment",
+		"//example.org:3000/some/path?some=value&some2=value#fragment",
+		"//example.org:/some/path?some=value&some2=value#fragment",
+		"//example.org/some/path?some=value&some2=value#fragment",
+		"///some/path?some=value&some2=value#fragment",
+		"/some/path?some=value&some2=value#fragment",
+		"/some/path?some=value&some2=value#",
+		"/some/path?some=value&some2=value",
+		"/some/path?",
+		"/some/path",
+		""
+	]
+}
