@@ -51,6 +51,14 @@ describe('lib/URI', function () {
 			assert.strictEqual(uri.query, null);
 			assert.strictEqual(uri.fragment, null);
 		});
+		it('should create proper URI object with not string', function () {
+			var uri = new URI({});
+			assert.strictEqual(uri.scheme, null);
+			assert.strictEqual(uri.authority, null);
+			assert.strictEqual(uri.path, '');
+			assert.strictEqual(uri.query, null);
+			assert.strictEqual(uri.fragment, null);
+		});
 		describe('Parsing URI without encodings', function () {
 			parseNonEncoded.items.forEach(function (item) {
 				it('should properly parse ' + item.name, function () {
@@ -70,6 +78,46 @@ describe('lib/URI', function () {
 				});
 			});
 		});
+	});
+	describe('#clone', function () {
+		it('should clone whole URI object and all inner components',
+			function () {
+				var uri = new URI(
+					'http://user:pass@example.org:3000' +
+					'/some/path?some=value&some2=value#fragment'
+				);
+				var clone = uri.clone();
+				assert.notEqual(clone, uri);
+				assert.notEqual(clone.authority, uri.authority);
+				assert.notEqual(
+					clone.authority.userInfo,  uri.authority.userInfo
+				);
+				assert.notEqual(
+					clone.query,  uri.query
+				);
+				assert.strictEqual(clone.scheme, uri.scheme);
+				assert.strictEqual(
+					clone.authority.userInfo.user, uri.authority.userInfo.user
+				);
+				assert.strictEqual(
+					clone.authority.userInfo.password,
+					uri.authority.userInfo.password
+				);
+				assert.strictEqual(
+					clone.authority.host, uri.authority.host
+				);
+				assert.strictEqual(
+					clone.authority.port, uri.authority.port
+				);
+				assert.strictEqual(clone.path, uri.path);
+				Object.keys(clone.query.values)
+					.forEach(function (key) {
+						assert.strictEqual(
+							clone.query.values[key], uri.query.values[key]
+						);
+					});
+				assert.strictEqual(clone.fragment, uri.fragment);
+			});
 	});
 	describe('#toString', function () {
 		it('should recombine URI object with empty value to empty string',
@@ -118,6 +166,12 @@ describe('lib/URI', function () {
 			assert.throws(function () {
 				console.log(uri.toString());
 			});
+		});
+		it('should properly handle null as query.values', function () {
+			var uri = new URI();
+			uri.query = new Query();
+			uri.query.values = null;
+			assert.strictEqual(uri.toString(), '?');
 		});
 	});
 	describe('#resolveRelative', function () {
