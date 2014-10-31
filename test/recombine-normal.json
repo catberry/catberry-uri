@@ -12,6 +12,8 @@
 		"/some/path?some=value&some2=value#fragment",
 		"/some/path?some=value&some2=value#",
 		"/some/path?some=value&some2=value",
+		"/some/path?some=&some2=value",
+		"/some/path?some&some2=value",
 		"/some/path?",
 		"/some/path",
 		""
