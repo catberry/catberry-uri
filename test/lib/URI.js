@@ -173,6 +173,25 @@ describe('lib/URI', function () {
 			uri.query.values = null;
 			assert.strictEqual(uri.toString(), '?');
 		});
+		it('should properly stringify non-string query.values', function () {
+			var uri = new URI();
+			uri.query = new Query();
+			uri.query.values = {
+				number: 1,
+				bool: true,
+				nullValue: null,
+				some: undefined,
+				obj: {}
+			};
+			assert.strictEqual(
+				uri.toString(),
+				'?number=1' +
+				'&bool=true' +
+				'&nullValue=null' +
+				'&some' +
+				'&obj=%5Bobject%20Object%5D'
+			);
+		});
 	});
 	describe('#resolveRelative', function () {
 		describe('RFC 3986 5.4.1', function () {
