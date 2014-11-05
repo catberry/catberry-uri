@@ -84,7 +84,8 @@ console.log(uri.toString());
 // http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment
 ```
 All URI components are optional and `null` by default.
-`null` and `undefined` values of every component are ignored.
+`null` and `undefined` values of every component are ignored otherwise any value
+will be converted to string.
 
 ###Resolve relative URI
 Also you can resolve any relative URI using base URI.
