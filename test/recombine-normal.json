@@ -14,6 +14,7 @@
 		"/some/path?some=value&some2=value",
 		"/some/path?some=&some2=value",
 		"/some/path?some&some2=value",
+		"/some/path?some=value1&some&some=value3",
 		"/some/path?",
 		"/some/path",
 		""
