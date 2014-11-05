@@ -24,18 +24,18 @@ var catberryURI = require('catberry-uri'),
 	UserInfo = catberryURI.UserInfo,
 	Query = catberryURI.Query;
 
-var uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment');
+var uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment');
 console.log(uri);
 ```
 And you will get such object
 ```javascript
-{ scheme: 'http',
+ scheme: 'http',
   authority:
    { userInfo: { user: 'user', password: 'pass' },
      port: '3000',
      host: 'example.org' },
   path: '/some/path',
-  query: { values: { some: 'value', some2: 'value' } },
+  query: { values: { some: 'value', some2: [ 'value', 'value2' ], some3: null } },
   fragment: 'fragment' }
 ```
 This object is instance of `URI` constructor, `authority` field is instance
@@ -54,7 +54,7 @@ uri.authority.userInfo.toString(); // user:pass
 uri.authority.toString(); // user:pass@example.org:3000
 uri.query.toString(); // some=value&some2=value
 console.log(uri.toString());
-// http://user:pass@example.org:3000/some/path?some=value&some2=value#fragment
+// http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment
 ```
 
 ###Building new URI
@@ -73,16 +73,18 @@ uri.authority.host = 'example.org';
 uri.authority.port = '3000';
 uri.path = '/some/path';
 uri.query = new Query();
-uri.query.values = {
-		some: 'value',
-		some2: 'value2'
-	};
+uri.query.values: {
+	some: 'value',
+	some2: [ 'value', 'value2' ],
+	some3: null
+}
 uri.fragment = 'fragment';
 
 console.log(uri.toString());
-// http://user:pass@example.org:3000/some/path?some=value&some2=value2#fragment
+// http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment
 ```
 All URI components are optional and `null` by default.
+`null` and `undefined` values of every component are ignored.
 
 ###Resolve relative URI
 Also you can resolve any relative URI using base URI.
