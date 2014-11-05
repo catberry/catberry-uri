@@ -187,7 +187,7 @@ describe('lib/URI', function () {
 				uri.toString(),
 				'?number=1' +
 				'&bool=true' +
-				'&nullValue=null' +
+				'&nullValue' +
 				'&some' +
 				'&obj=%5Bobject%20Object%5D'
 			);
