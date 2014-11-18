@@ -73,7 +73,7 @@ uri.authority.host = 'example.org';
 uri.authority.port = '3000';
 uri.path = '/some/path';
 uri.query = new Query();
-uri.query.values: {
+uri.query.values = {
 	some: 'value',
 	some2: [ 'value', 'value2' ],
 	some3: null
