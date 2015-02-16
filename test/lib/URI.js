@@ -69,7 +69,7 @@ describe('lib/URI', function () {
 			});
 		});
 
-		describe('Parsing URI with percent encoding and punycode', function () {
+		describe('Parsing URI with percent encoding', function () {
 			parseEncoded.items.forEach(function (item) {
 				it('should properly parse ' + item.name, function () {
 					var uri = new URI(item.uri),
