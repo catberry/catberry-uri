@@ -5,9 +5,8 @@
 This is well-tested URI parser implementation that has been developed strictly
 according to [RFC 3986](https://tools.ietf.org/html/rfc3986).
 
-It supports punycode for URI authority host component and percent-encoding for
-all URI components except scheme and port. Percent encoding/decoding
-happens automatically.
+It supports percent-encoding for all URI components except scheme and port.
+Percent encoding/decoding happens automatically.
 
 It validates scheme and port component values during URI recombination.
 
