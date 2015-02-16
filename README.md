@@ -1,7 +1,7 @@
-#URI parser for Catberry Framework 3.0 [![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![Coverage Status](https://coveralls.io/repos/catberry/catberry-uri/badge.png)](https://coveralls.io/r/catberry/catberry-uri)
+# URI parser for Catberry Framework 3.0 [![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![Coverage Status](https://coveralls.io/repos/catberry/catberry-uri/badge.png)](https://coveralls.io/r/catberry/catberry-uri)
 [![NPM](https://nodei.co/npm/catberry-uri.png)](https://nodei.co/npm/catberry-uri/)
 
-##Description
+## Description
 This is well-tested URI parser implementation that has been developed strictly
 according to [RFC 3986](https://tools.ietf.org/html/rfc3986).
 
@@ -13,9 +13,9 @@ It validates scheme and port component values during URI recombination.
 It implements relative reference resolution algorithm from
 [RFC 3986 5.2](https://tools.ietf.org/html/rfc3986#section-5.2).
 
-##Usage
+## Usage
 
-###Parse URI
+### Parse URI
 ```javascript
 var catberryURI = require('catberry-uri'),
 	URI = catberryURI.URI,
@@ -41,7 +41,7 @@ This object is instance of `URI` constructor, `authority` field is instance
 of `Authority`, `authority.userInfo` is instance of `UserInfo` and `query` is
 instance of `Query`.
 
-###Get URI string
+### Get URI string
 You can safely edit every component of parsed URI and then get URI string back.
 When you convert URI object to string scheme and port values are validated and
 could throw exception if values are not satisfy `/^[a-z]+[a-z\d\+\.-]*$/i` and
@@ -56,7 +56,7 @@ console.log(uri.toString());
 // http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment
 ```
 
-###Building new URI
+### Building new URI
 Also every URI component including URI itself has `clone` method to create
 a cloned URI component for building another URI.
 
@@ -86,7 +86,7 @@ All URI components are optional and `null` by default.
 `null` and `undefined` values of every component are ignored otherwise any value
 will be converted to string.
 
-###Resolve relative URI
+### Resolve relative URI
 Also you can resolve any relative URI using base URI.
 ```javascript
 var uri = new URI('../../../../g'),
@@ -96,7 +96,7 @@ var absoluteUri = uri.resolveRelative(baseUri);
 console.log(absoluteUri.toString()); // http://a/g
 ```
 
-##Contribution
+## Contribution
 If you have found a bug, please create pull request with [mocha](https://www.npmjs.org/package/mocha)
 unit-test which reproduces it or describe all details in an issue if you can not
 implement test. If you want to propose some improvements just create an issue or
