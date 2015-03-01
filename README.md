@@ -1,4 +1,7 @@
-# URI parser for Catberry Framework 3.0 [![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![Coverage Status](https://coveralls.io/repos/catberry/catberry-uri/badge.png)](https://coveralls.io/r/catberry/catberry-uri)
+# URI Parser for Catberry Framework
+
+[![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![Coverage Status](https://coveralls.io/repos/catberry/catberry-uri/badge.png)](https://coveralls.io/r/catberry/catberry-uri)
+
 [![NPM](https://nodei.co/npm/catberry-uri.png)](https://nodei.co/npm/catberry-uri/)
 
 ## Description
