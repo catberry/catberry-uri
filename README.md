@@ -1,6 +1,6 @@
 # URI Parser for Catberry Framework
 
-[![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![Coverage Status](https://coveralls.io/repos/catberry/catberry-uri/badge.png)](https://coveralls.io/r/catberry/catberry-uri)
+[![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
 
 [![NPM](https://nodei.co/npm/catberry-uri.png)](https://nodei.co/npm/catberry-uri/)
 
@@ -99,15 +99,13 @@ var absoluteUri = uri.resolveRelative(baseUri);
 console.log(absoluteUri.toString()); // http://a/g
 ```
 
-## Contribution
-If you have found a bug, please create pull request with [mocha](https://www.npmjs.org/package/mocha)
-unit-test which reproduces it or describe all details in an issue if you can not
-implement test. If you want to propose some improvements just create an issue or
-a pull request but please do not forget to use `npm test` to be sure that your
-code is awesome.
+## Contributing
 
-All changes should satisfy this [Code Style Guide](https://github.com/catberry/catberry/blob/4.0.0/docs/code-style-guide.md).
+There are a lot of ways to contribute:
 
-Also your changes should be covered by unit tests using [mocha](https://www.npmjs.org/package/mocha).
+* Give it a star
+* Join the [Gitter](https://gitter.im/catberry/catberry) room and leave a feedback or help with answering users' questions
+* [Submit a bug or a feature request](https://github.com/catberry/catberry-uri/issues)
+* [Submit a PR](https://github.com/catberry/catberry-uri/blob/develop/CONTRIBUTING.md)
 
 Denis Rechkunov <denis.rechkunov@gmail.com>
