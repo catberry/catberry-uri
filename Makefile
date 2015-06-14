@@ -39,10 +39,10 @@ else
 		--bail
 endif
 
-coveralls: test-cov
-	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+send-cov: test-cov
+	cat ./coverage/lcov.info | ./node_modules/.bin/codecov
 
-travis: coveralls
+travis: send-cov
 clean:
 	rm -rf coverage
 
