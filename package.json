@@ -1,6 +1,6 @@
 {
 	"name": "catberry-uri",
-	"version": "2.1.4",
+	"version": "2.1.5",
 	"author": "Denis Rechkunov <denis.rechkunov@gmail.com>",
 	"description": "URI parser strictly according to RFC 3986",
 	"homepage": "https://github.com/catberry/catberry-uri",
@@ -21,11 +21,11 @@
 	},
 	"main": "./index.js",
 	"devDependencies": {
-		"istanbul-harmony": "~0.3.1",
-		"codecov.io": "^0.1.2",
-		"mocha": "^2.1.0",
-		"jscs": "~1.6.2",
-		"jshint": "^2.6.0"
+		"istanbul": "~0.4.0",
+		"codecov.io": "~0.1.6",
+		"mocha": "^2.3.3",
+		"jscs": "^2.5.1",
+		"jshint": "^2.8.0"
 	},
 	"engines": {
 		"node": ">=0.10"
