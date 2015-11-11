@@ -90,10 +90,10 @@ describe('lib/URI', function () {
 				assert.notEqual(clone, uri);
 				assert.notEqual(clone.authority, uri.authority);
 				assert.notEqual(
-					clone.authority.userInfo,  uri.authority.userInfo
+					clone.authority.userInfo, uri.authority.userInfo
 				);
 				assert.notEqual(
-					clone.query,  uri.query
+					clone.query, uri.query
 				);
 				assert.strictEqual(clone.scheme, uri.scheme);
 				assert.strictEqual(
@@ -233,7 +233,7 @@ function compareURI(uri, expected) {
 	assert.strictEqual(uri.scheme, expected.scheme);
 	if (expected.authority === null) {
 		assert.strictEqual(uri.authority, null);
-	}else{
+	} else {
 		assert.strictEqual(
 			uri.authority.host, expected.authority.host
 		);
@@ -242,7 +242,7 @@ function compareURI(uri, expected) {
 		);
 		if (expected.authority.userInfo === null) {
 			assert.strictEqual(uri.authority.userInfo, null);
-		}else {
+		} else {
 			assert.strictEqual(
 				uri.authority.userInfo.user,
 				expected.authority.userInfo.user
@@ -260,7 +260,7 @@ function compareURI(uri, expected) {
 
 	if (expected.query === null) {
 		assert.strictEqual(uri.query, null);
-	}else {
+	} else {
 		assert.strictEqual(
 			Object.keys(uri.query.values).length,
 			Object.keys(expected.query).length
