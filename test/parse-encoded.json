@@ -240,6 +240,17 @@
 				"query": null,
 				"fragment": null
 			}
+		},
+		{
+			"name": "URI without query and with %2F in path",
+			"uri": "/%23%25%5E%3C%3E%7B%7D%5B%5D%60%2F%3F%5C%22%D0%BF%D1%83%D1%82%D1%8C/%23%25%5E%3C%3E%7B%7D%5B%5D%60%2F%3F%5C%22%D0%BF%D1%83%D1%82%D1%8C",
+			"expected": {
+				"scheme": null,
+				"authority": null,
+				"path": "/#%^<>{}[]`%2F?\\\"путь/#%^<>{}[]`%2F?\\\"путь",
+				"query": null,
+				"fragment": null
+			}
 		}
 	]
 }
