@@ -74,6 +74,20 @@ describe('lib/URI', () => {
 		});
 	});
 	describe('#toString', () => {
+		it('should throw an error if port contains a wrong value', () => {
+			const uri = new URI('http://localhost:80/');
+			uri.authority.port = 'wrong';
+			assert.throws(() => {
+				uri.toString();
+			});
+		});
+		it('should throw an error if scheme contains a wrong character', () => {
+			const uri = new URI('http://localhost:80/');
+			uri.scheme = 'wr/ong';
+			assert.throws(() => {
+				uri.toString();
+			});
+		});
 		it('should recombine URI object with empty value to empty string', () => {
 			const uri = new URI();
 			assert.strictEqual(uri.toString(), '');
@@ -139,6 +153,12 @@ describe('lib/URI', () => {
 		});
 	});
 	describe('#resolveRelative', () => {
+		it('should throw an error if a base URI has no scheme', () => {
+			const uri = new URI('http://localhost/some');
+			assert.throws(() => {
+				uri.resolveRelative('//locahost/');
+			});
+		});
 		describe('RFC 3986 5.4.1', () => {
 			const baseUri = new URI(rfcNormal.baseUri);
 			rfcNormal.tests.forEach(item => {
