@@ -1,6 +1,6 @@
 # URI Parser for Catberry Framework
 
-[![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
+[![Build Status](https://travis-ci.org/catberry/catberry-uri.svg?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
 
 ## Description
 This is well-tested URI parser implementation that has been developed strictly
@@ -103,7 +103,7 @@ console.log(absoluteUri.toString()); // http://a/g
 There are a lot of ways to contribute:
 
 * Give it a star
-* Join the [Gitter](https://gitter.im/catberry/catberry) room and leave a feedback or help with answering users' questions
+* Join the [Gitter](https://gitter.im/catberry/main) room and leave a feedback or help with answering users' questions
 * [Submit a bug or a feature request](https://github.com/catberry/catberry-uri/issues)
 * [Submit a PR](https://github.com/catberry/catberry-uri/blob/develop/CONTRIBUTING.md)
 
