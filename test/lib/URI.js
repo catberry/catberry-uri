@@ -13,6 +13,17 @@ const UserInfo = require('../../lib/UserInfo');
 
 /* eslint max-nested-callbacks: [2, 7]*/
 describe('lib/URI', () => {
+	describe('factory', () => {
+		it('should properly create an authority', () => {
+			assert.strictEqual(URI.createAuthority() instanceof Authority, true);
+		});
+		it('should properly create a user info', () => {
+			assert.strictEqual(URI.createUserInfo() instanceof UserInfo, true);
+		});
+		it('should properly create an authority', () => {
+			assert.strictEqual(URI.createQuery() instanceof Query, true);
+		});
+	});
 	describe('constructor', () => {
 		it('should create proper URI object with empty value', () => {
 			const uri = new URI();
