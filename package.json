@@ -21,8 +21,8 @@
 	},
 	"main": "./index.js",
 	"devDependencies": {
-		"istanbul": "~0.4.0",
-		"codecov.io": "~0.1.6",
+		"istanbul": "~0.4.2",
+		"codecov": "^1.0.1",
 		"mocha": "^2.3.3",
 		"eslint": "^2.0.0"
 	},
