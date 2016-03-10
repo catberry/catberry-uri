@@ -1,8 +1,6 @@
 # URI Parser for Catberry Framework
 
-[![Build Status](https://travis-ci.org/catberry/catberry-uri.png?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
-
-[![NPM](https://nodei.co/npm/catberry-uri.png)](https://nodei.co/npm/catberry-uri/)
+[![Build Status](https://travis-ci.org/catberry/catberry-uri.svg?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
 
 ## Description
 This is well-tested URI parser implementation that has been developed strictly
@@ -19,17 +17,16 @@ It implements relative reference resolution algorithm from
 ## Usage
 
 ### Parse URI
-```javascript
-var catberryURI = require('catberry-uri'),
-	URI = catberryURI.URI,
-	Authority = catberryURI.Authority,
-	UserInfo = catberryURI.UserInfo,
-	Query = catberryURI.Query;
 
-var uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment');
+```javascript
+const catberryURI = require('catberry-uri');
+const URI = catberryURI.URI;
+const uri = new URI('http://user:pass@example.org:3000/some/path?some=value&some2=value&some2=value2&some3#fragment');
 console.log(uri);
 ```
+
 And you will get such object
+
 ```javascript
  scheme: 'http',
   authority:
@@ -51,6 +48,7 @@ could throw exception if values are not satisfy `/^[a-z]+[a-z\d\+\.-]*$/i` and
 /`^\d+$/` respectively.
 
 To get string representation of all these URI components just use `toString()`
+
 ```javascript
 uri.authority.userInfo.toString(); // user:pass
 uri.authority.toString(); // user:pass@example.org:3000
@@ -60,21 +58,21 @@ console.log(uri.toString());
 ```
 
 ### Building new URI
-Also every URI component including URI itself has `clone` method to create
+Also, every URI component including URI itself has `clone` method to create
 a cloned URI component for building another URI.
 
 You can create new empty URI like this:
 ```javascript
-var uri = new URI();
+const uri = new URI();
 uri.scheme = 'http';
-uri.authority = new Authority();
-uri.authority.userInfo = new UserInfo();
+uri.authority = URI.createAuthority();
+uri.authority.userInfo = URI.createUserInfo();
 uri.authority.userInfo.user = 'user';
 uri.authority.userInfo.password = 'pass';
 uri.authority.host = 'example.org';
 uri.authority.port = '3000';
 uri.path = '/some/path';
-uri.query = new Query();
+uri.query = URI.createQuery();
 uri.query.values = {
 	some: 'value',
 	some2: [ 'value', 'value2' ],
@@ -90,12 +88,13 @@ All URI components are optional and `null` by default.
 will be converted to string.
 
 ### Resolve relative URI
-Also you can resolve any relative URI using base URI.
-```javascript
-var uri = new URI('../../../../g'),
-	baseUri = new URI('http://a/b/c/d;p?q');
+Also, you can resolve any relative URI using base URI.
 
-var absoluteUri = uri.resolveRelative(baseUri);
+```javascript
+const uri = new URI('../../../../g');
+const baseUri = new URI('http://a/b/c/d;p?q');
+
+const absoluteUri = uri.resolveRelative(baseUri);
 console.log(absoluteUri.toString()); // http://a/g
 ```
 
@@ -104,7 +103,7 @@ console.log(absoluteUri.toString()); // http://a/g
 There are a lot of ways to contribute:
 
 * Give it a star
-* Join the [Gitter](https://gitter.im/catberry/catberry) room and leave a feedback or help with answering users' questions
+* Join the [Gitter](https://gitter.im/catberry/main) room and leave a feedback or help with answering users' questions
 * [Submit a bug or a feature request](https://github.com/catberry/catberry-uri/issues)
 * [Submit a PR](https://github.com/catberry/catberry-uri/blob/develop/CONTRIBUTING.md)
 
