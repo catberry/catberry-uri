@@ -143,13 +143,13 @@ describe('lib/URI', () => {
 		});
 		it('should properly handle null as query.values', () => {
 			const uri = new URI();
-			uri.query = new Query();
+			uri.query = uri.createQuery();
 			uri.query.values = null;
 			assert.strictEqual(uri.toString(), '?');
 		});
 		it('should properly stringify non-string query.values', () => {
 			const uri = new URI();
-			uri.query = new Query();
+			uri.query = uri.createQuery();
 			uri.query.values = {
 				number: 1,
 				bool: true,
@@ -243,11 +243,11 @@ function compareURI(uri, expected) {
 function fillWithObject(uri, object) {
 	uri.scheme = object.scheme;
 	if (object.authority !== null) {
-		uri.authority = new Authority();
+		uri.authority = uri.createAuthority();
 		uri.authority.host = object.authority.host;
 		uri.authority.port = object.authority.port;
 		if (object.authority.userInfo !== null) {
-			uri.authority.userInfo = new UserInfo();
+			uri.authority.userInfo = uri.createUserInfo();
 			uri.authority.userInfo.user = object.authority.userInfo.user;
 			uri.authority.userInfo.password = object.authority.userInfo.password;
 		}
@@ -256,7 +256,7 @@ function fillWithObject(uri, object) {
 	uri.path = object.path;
 
 	if (object.query !== null) {
-		uri.query = new Query();
+		uri.query = uri.createQuery();
 		uri.query.values = object.query;
 	}
 	uri.fragment = object.fragment;
