@@ -65,14 +65,16 @@ You can create new empty URI like this:
 ```javascript
 const uri = new URI();
 uri.scheme = 'http';
+// there is a static method in the URI class
 uri.authority = URI.createAuthority();
-uri.authority.userInfo = URI.createUserInfo();
+// and also, an instance method
+uri.authority.userInfo = uri.createUserInfo();
 uri.authority.userInfo.user = 'user';
 uri.authority.userInfo.password = 'pass';
 uri.authority.host = 'example.org';
 uri.authority.port = '3000';
 uri.path = '/some/path';
-uri.query = URI.createQuery();
+uri.query = uri.createQuery();
 uri.query.values = {
 	some: 'value',
 	some2: [ 'value', 'value2' ],
@@ -96,6 +98,83 @@ const baseUri = new URI('http://a/b/c/d;p?q');
 
 const absoluteUri = uri.resolveRelative(baseUri);
 console.log(absoluteUri.toString()); // http://a/g
+```
+
+### Interface
+
+```javascript
+class URI {
+
+	/**
+	 * Creates a new URI authority component.
+	 * @param {string?} Existing string.
+	 * @return {Authority} The authority component.
+	 */
+	static createAuthority(string) {}
+
+	/**
+	 * Creates a new URI authority component.
+	 * @param {string?} Existing string.
+	 * @return {Authority} The authority component.
+	 */
+	createAuthority(string) {}
+
+	/**
+	 * Creates a new URI user info component.
+	 * @param {string?} Existing string.
+	 * @return {UserInfo} The user info component.
+	 */
+	static createUserInfo(string) {}
+
+	/**
+	 * Creates a new URI user info component.
+	 * @param {string?} Existing string.
+	 * @return {UserInfo} The user info component.
+	 */
+	createUserInfo(string) {}
+
+	/**
+	 * Creates a new URI query component.
+	 * @param {string?} Existing string.
+	 * @return {Query} The query component.
+	 */
+	static createQuery(string)}
+
+	/**
+	 * Creates a new URI query component.
+	 * @param {string?} Existing string.
+	 * @return {Query} The query component.
+	 */
+	createQuery(string) {}
+
+	/**
+	 * Creates new instance of URI according to RFC 3986.
+	 * @param {string?} uriString URI string to parse components.
+	 */
+	constructor(uriString) {}
+
+	/**
+	 * Converts a URI reference that might be relative to a given base URI
+	 * into the reference's target URI.
+	 * https://tools.ietf.org/html/rfc3986#section-5.2
+	 * @param {URI} baseUri Base URI.
+	 * @returns {URI} Resolved URI.
+	 */
+	resolveRelative(baseUri) {}
+
+	/**
+	 * Clones current URI to a new object.
+	 * @returns {URI} New clone of current object.
+	 */
+	clone() {}
+
+	/**
+	 * Recomposes URI components to URI string,
+	 * https://tools.ietf.org/html/rfc3986#section-5.3
+	 * @returns {string} URI string.
+	 */
+	toString() {}
+}
 ```
 
 ## Contributing
