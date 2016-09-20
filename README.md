@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/catberry/catberry-uri.svg?branch=master)](https://travis-ci.org/catberry/catberry-uri) [![codecov.io](http://codecov.io/github/catberry/catberry-uri/coverage.svg?branch=master)](http://codecov.io/github/catberry/catberry-uri?branch=master)
 
+## Installation
+
+```bash
+npm install catberry-uri
+```
+
 ## Description
 This is well-tested URI parser implementation that has been developed strictly
 according to [RFC 3986](https://tools.ietf.org/html/rfc3986).
