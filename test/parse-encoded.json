@@ -251,6 +251,21 @@
 				"query": null,
 				"fragment": null
 			}
+		},
+		{
+			"name": "URI with another URI in the path",
+			"uri": "http://localhost:1337/pages/http:%2F%2Fstackoverflow.com%2F",
+			"expected": {
+				"scheme": "http",
+				"authority": {
+					"userInfo": null,
+					"port": "1337",
+					"host": "localhost"
+				},
+				"path": "/pages/http:%2F%2Fstackoverflow.com%2F",
+				"query": null,
+				"fragment": null
+			}
 		}
 	]
 }
