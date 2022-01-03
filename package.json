@@ -1,7 +1,7 @@
 {
 	"name": "catberry-uri",
 	"version": "3.2.2",
-	"author": "Denis Rechkunov <denis.rechkunov@gmail.com>",
+	"author": "Denis Rechkunov <denis@rdner.de>",
 	"description": "URI parser strictly according to RFC 3986",
 	"homepage": "https://github.com/catberry/catberry-uri",
 	"keywords": [
@@ -13,7 +13,7 @@
 	],
 	"bugs": {
 		"url": "https://github.com/catberry/catberry-uri/issues",
-		"email": "denis.rechkunov@gmail.com"
+		"email": "denis@rdner.de"
 	},
 	"repository": {
 		"type": "git",
